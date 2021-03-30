@@ -6,14 +6,11 @@ class Tile{
     public $id;
     public $name;
     public $isOwned = false;
-    public $pay;
-    public static $increment = 0;
     public static $board = [];
 
-    public function __construct($name, $pay){
+    public function __construct($name, $id){
         $this->name = $name;
-        $this->pay = $pay;
-        $this->id = ++self::$increment;
-        self::$board[] = $this->id;
+        $this->id = $id;
+        self::$board[] = $this;
     }
 }

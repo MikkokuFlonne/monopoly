@@ -1,7 +1,7 @@
 <?php
 namespace Src;
 
-class Community{
+class Card{
     public $id;
     public $effect;
     public $value;

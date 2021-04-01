@@ -8,7 +8,7 @@
 
 // Renvoie la page actuelle sur laquelle on se situe
 // Pour récupérer la page actuelle, on peut utiliser $_SERVER
-// /php/08-includes/acteurs.php -> acteurs
+
 // explode transforme la chaine en tableau et array_pop prend la
 // dernière valeur du tableau
 $scripts = explode('/', $_SERVER['SCRIPT_NAME']);
@@ -16,4 +16,7 @@ $page = array_pop($scripts); // index.php ou acteurs.php
 
 if (!isset($title)) {
     $title = 'Monopoly';
+}
+if (!isset($style)) {
+    $style = '';
 }

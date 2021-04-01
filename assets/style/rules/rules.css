@@ -1,0 +1,24 @@
+body .container section.rules {
+  background-color: red;
+  color: white;
+}
+body .container section.rules div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .container section.rules div > h2 {
+  font-size: 1.2em;
+  width: 30%;
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+body .container section.rules div > h2 span {
+  font-size: 2em;
+}
+body .container section.rules div > h2 span:nth-child(3) i {
+  transform: scaleX(-1);
+}
+
+/*# sourceMappingURL=rules.css.map */

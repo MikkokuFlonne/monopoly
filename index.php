@@ -15,27 +15,14 @@ use Src\Tile;
 use Src\Land;
 use Src\Player;
 use Src\Deck;
+use Src\Board;
 
-// $tile0 = new Tile('truc', 200);
-// $tile2 = new Tile('truc', 200);
-// $tile3 = new Tile('truc', 200);
-// $tile4 = new Tile('truc', 200);
-// $tile5 = new Tile('truc', 200);
-// $tile6 = new Tile('truc', 200);
-// $land = new Land('truc', 200, 400);
+$board = new Board('Kamas', 'Wakfu');
 
-// var_dump($tile0);
-// var_dump($tile5);
-// var_dump($land);
 
-// $mikkoku =new Player('Mikkoku');
-// var_dump($mikkoku);
+$mikkoku =new Player('Mikkoku');
+var_dump($mikkoku);
 
-//  echo $mikkoku->movePawn(7). '<br/>';
-// var_dump($mikkoku);
-
-// echo $mikkoku->buyLand($land). '<br/>';
-// var_dump($mikkoku);
 
 $communityCards = DB::query('SELECT * FROM community_chest');
 
@@ -46,8 +33,8 @@ foreach($communityCards as $index=>$communityCard){
 
     $communityCardProps = get_object_vars ($communityCard);
     $cardnumber = 'community'.$index;
-    $card = new Card($communityCardProps);
-    $communityDeck->addCard($card);
+    $card = new Card($communityCardProps, $board);
+    $communityDeck->addCard($card, $cardnumber);
 
 }
 
@@ -60,10 +47,16 @@ $lands = DB::query('SELECT * FROM land');
 foreach($lands as $land){
 
     $land = get_object_vars ($land);
-    $landnumber = 'land'.$index;
-    $deed = new Land($land);
-    $deed::$board[]= $deed;
+    $landnumber = 'land'.$land['id'];
 
+    
+    
 }
 
-var_dump($deed::$board);
+var_dump($communityDeck->shuffleDeck());
+var_dump($communityDeck->deckUsed);
+
+var_dump($communityDeck->drawCard($player));
+
+var_dump($communityDeck->deckUsed);
+

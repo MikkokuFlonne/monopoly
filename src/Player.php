@@ -8,6 +8,9 @@ class Player{
     public $lands = [];
     public $pawn = 0;
     public $devise;
+    public $inJail = false;
+    public $outOfJail = false;
+    public $card = [];
 
     public function __construct($pseudo){
         $this->pseudo = $pseudo;
